@@ -62,7 +62,39 @@ export default function VoiceInput({ onTranscription }: VoiceInputProps) {
     <Card className="p-6">
       <div className="space-y-4">
         <div className="text-center">
-          <h3 className="font-semibold text-lg mb-2">Asistente de Voz con NLP</h3>
+          {/* Robot mascot */}
+          <div className="flex justify-center mb-3">
+            <div className="relative w-16 h-16">
+              {/* Head */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl shadow-md flex items-center justify-center">
+                {/* Eyes */}
+                <div className="flex gap-2 mb-1">
+                  <motion.div
+                    animate={isRecording ? { scale: [1, 1.3, 1] } : {}}
+                    transition={{ repeat: Infinity, duration: 0.6 }}
+                    className="w-3 h-3 bg-white rounded-full flex items-center justify-center"
+                  >
+                    <div className="w-1.5 h-1.5 bg-blue-700 rounded-full" />
+                  </motion.div>
+                  <motion.div
+                    animate={isRecording ? { scale: [1, 1.3, 1] } : {}}
+                    transition={{ repeat: Infinity, duration: 0.6, delay: 0.1 }}
+                    className="w-3 h-3 bg-white rounded-full flex items-center justify-center"
+                  >
+                    <div className="w-1.5 h-1.5 bg-blue-700 rounded-full" />
+                  </motion.div>
+                </div>
+              </div>
+              {/* Antenna */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-1 h-3 bg-blue-400 rounded-full" />
+              <motion.div
+                animate={isRecording ? { backgroundColor: ["#f59e0b", "#ef4444", "#f59e0b"] } : { backgroundColor: "#93c5fd" }}
+                transition={{ repeat: Infinity, duration: 0.5 }}
+                className="absolute -top-4 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full"
+              />
+            </div>
+          </div>
+          <h3 className="font-semibold text-lg mb-2">Asistente de Voz</h3>
           <p className="text-sm text-gray-600">
             Presiona el micrófono y dicta tu observación naturalmente
           </p>
@@ -112,7 +144,7 @@ export default function VoiceInput({ onTranscription }: VoiceInputProps) {
               animate={{ opacity: 1 }}
               className="text-blue-600 font-medium"
             >
-              🤖 Procesando con IA...
+              🤖 Procesando...
             </motion.p>
           )}
         </div>

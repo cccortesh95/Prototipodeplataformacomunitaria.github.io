@@ -4,40 +4,35 @@ import { Button } from "../components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import AlertCard from "../components/AlertCard";
 import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
-import { desarrolloData, alertasData, ninos } from "../data/mockData";
+import { desarrolloData, alertasData, ninos, registros } from "../data/mockData";
 import { Download, TrendingUp, AlertTriangle, Activity } from "lucide-react";
 import { motion } from "motion/react";
 import { toast } from "sonner";
+import { useAuth } from "../context/AuthContext";
+
+// Mapa de hogar por usuario madre (en producción vendría del backend)
+const HOGAR_POR_MADRE: Record<string, string> = {
+  "Rosa Martínez": "Los Girasoles",
+};
 
 export default function Monitoreo() {
+  const { user } = useAuth();
   const [selectedPeriod, setSelectedPeriod] = useState("mes");
 
-  const alertas = [
-    {
-      id: '1',
-      tipo: 'critico' as const,
-      categoria: 'Nutrición',
-      mensaje: 'No ha comido bien en los últimos 3 días. Requiere evaluación nutricional urgente.',
-      nino: 'Carlos López',
-      fecha: '2026-04-06'
-    },
-    {
-      id: '2',
-      tipo: 'critico' as const,
-      categoria: 'Salud',
-      mensaje: 'Presenta fiebre y rechazó el almuerzo. Necesita evaluación médica.',
-      nino: 'Juanito Pérez',
-      fecha: '2026-04-08'
-    },
-    {
-      id: '3',
-      tipo: 'medio' as const,
-      categoria: 'Desarrollo',
-      mensaje: 'Bajo rendimiento en actividades de motricidad fina.',
-      nino: 'María García',
-      fecha: '2026-04-07'
-    },
+  // Si es madre, filtramos por su hogar; inspector ve todo
+  const hogarFiltro = user?.role === "madre" ? HOGAR_POR_MADRE[user.nombre] : null;
+  const ninosFiltrados = hogarFiltro ? ninos.filter(n => n.hogarComunitario === hogarFiltro) : ninos;
+  const ninoIds = new Set(ninosFiltrados.map(n => n.id));
+
+  const alertasTodas = [
+    { id: '1', tipo: 'critico' as const, categoria: 'Nutrición', mensaje: 'No ha comido bien en los últimos 3 días. Requiere evaluación nutricional urgente.', nino: 'Carlos López',  ninoId: '3', fecha: '2026-04-06' },
+    { id: '2', tipo: 'critico' as const, categoria: 'Salud',     mensaje: 'Presenta fiebre y rechazó el almuerzo. Necesita evaluación médica.',                nino: 'Juanito Pérez', ninoId: '1', fecha: '2026-04-08' },
+    { id: '3', tipo: 'medio'  as const, categoria: 'Desarrollo', mensaje: 'Bajo rendimiento en actividades de motricidad fina.',                                nino: 'María García',  ninoId: '2', fecha: '2026-04-07' },
   ];
+
+  const alertas = hogarFiltro
+    ? alertasTodas.filter(a => ninoIds.has(a.ninoId))
+    : alertasTodas;
 
   const handleGenerateReport = () => {
     toast.success("Generando reporte automático...", { duration: 2000 });
@@ -62,7 +57,7 @@ export default function Monitoreo() {
               <h2 className="text-3xl font-bold">Monitoreo Infantil</h2>
             </div>
             <p className="text-gray-600">
-              Seguimiento de desarrollo y alertas tempranas
+              {hogarFiltro ? `Hogar: ${hogarFiltro}` : "Seguimiento de desarrollo y alertas tempranas"}
             </p>
           </div>
           <Button onClick={handleGenerateReport} className="gap-2">
@@ -235,7 +230,7 @@ export default function Monitoreo() {
         {/* Tab de Niños */}
         <TabsContent value="ninos" className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {ninos.map((nino, idx) => (
+            {ninosFiltrados.map((nino, idx) => (
               <motion.div
                 key={nino.id}
                 initial={{ opacity: 0, scale: 0.95 }}

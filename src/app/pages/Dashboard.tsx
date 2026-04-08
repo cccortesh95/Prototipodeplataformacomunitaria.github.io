@@ -1,10 +1,31 @@
-import { Users, FileText, AlertCircle, TrendingUp, Award } from "lucide-react";
+import { Users, FileText, AlertCircle, TrendingUp, Award, ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef } from "react";
 import { Card } from "../components/ui/card";
 import BadgeSystem from "../components/BadgeSystem";
 import { madreComuniaria, ninos, registros } from "../data/mockData";
 import { motion } from "motion/react";
 
+const tutoriales = [
+  { emoji: "🎤", title: "Uso del Asistente de Voz",           duration: "2 min", points: "+50 pts",  desc: "Aprende a dictar observaciones con tu voz de forma rápida y precisa." },
+  { emoji: "🥗", title: "Alertas Nutricionales",               duration: "3 min", points: "+75 pts",  desc: "Identifica señales de alerta en la alimentación de los niños." },
+  { emoji: "📊", title: "Cómo Generar Reportes",               duration: "4 min", points: "+100 pts", desc: "Crea reportes mensuales para el ICBF en pocos pasos." },
+  { emoji: "🏅", title: "Sistema de Puntos y Badges",          duration: "2 min", points: "+50 pts",  desc: "Descubre cómo ganar puntos y desbloquear certificaciones." },
+  { emoji: "👶", title: "Registro de Desarrollo Infantil",     duration: "5 min", points: "+120 pts", desc: "Documenta hitos del desarrollo motor, cognitivo y social." },
+  { emoji: "🚨", title: "Gestión de Alertas de Salud",         duration: "3 min", points: "+75 pts",  desc: "Cómo actuar ante una alerta de salud generada por el sistema." },
+  { emoji: "❤️", title: "Publicar Necesidades de Voluntariado", duration: "2 min", points: "+50 pts",  desc: "Conecta tu hogar con voluntarios que quieren ayudar." },
+  { emoji: "📅", title: "Planificación Semanal de Actividades", duration: "4 min", points: "+100 pts", desc: "Organiza las actividades pedagógicas de la semana." },
+  { emoji: "🔔", title: "Configurar Notificaciones",            duration: "2 min", points: "+50 pts",  desc: "Personaliza qué alertas y recordatorios quieres recibir." },
+];
+
 export default function Dashboard() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: "left" | "right") => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: dir === "left" ? -300 : 300, behavior: "smooth" });
+    }
+  };
+
   const alertasActivas = registros.filter(r => r.alertaGenerada).length;
   const registrosHoy = registros.filter(r => r.fecha === '2026-04-08').length;
   const ninosActivos = ninos.length;
@@ -167,28 +188,41 @@ export default function Dashboard() {
 
       {/* Tutoriales */}
       <Card className="p-6">
-        <h3 className="text-xl font-semibold mb-4">Micro-Tutoriales Disponibles</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {[
-            { title: "Uso del Asistente de Voz", duration: "2 min", points: "+50 pts" },
-            { title: "Detección de Alertas Nutricionales", duration: "3 min", points: "+75 pts" },
-            { title: "Cómo Generar Reportes", duration: "4 min", points: "+100 pts" },
-          ].map((tutorial, idx) => (
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-xl font-semibold">Micro-Tutoriales Disponibles</h3>
+          <div className="flex gap-2">
+            <button
+              onClick={() => scroll("left")}
+              className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+            >
+              <ChevronLeft className="w-4 h-4 text-gray-600" />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+            >
+              <ChevronRight className="w-4 h-4 text-gray-600" />
+            </button>
+          </div>
+        </div>
+        <div
+          ref={scrollRef}
+          className="flex gap-4 overflow-x-auto pb-2 scroll-smooth"
+          style={{ scrollbarWidth: "none" }}
+        >
+          {tutoriales.map((t, idx) => (
             <motion.div
               key={idx}
-              whileHover={{ scale: 1.05 }}
-              className="p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg border border-blue-200 cursor-pointer"
+              whileHover={{ scale: 1.03 }}
+              className="min-w-[220px] p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl border border-blue-200 cursor-pointer flex-shrink-0"
             >
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm">
-                  ▶
-                </div>
-                <div className="flex-1">
-                  <p className="font-medium text-sm">{tutorial.title}</p>
-                  <p className="text-xs text-gray-600">{tutorial.duration}</p>
-                </div>
+              <div className="text-3xl mb-3">{t.emoji}</div>
+              <p className="font-semibold text-sm mb-1">{t.title}</p>
+              <p className="text-xs text-gray-500 mb-3 leading-relaxed">{t.desc}</p>
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-gray-500">⏱ {t.duration}</span>
+                <span className="text-xs text-green-700 font-semibold">{t.points}</span>
               </div>
-              <div className="text-xs text-green-700 font-medium">{tutorial.points}</div>
             </motion.div>
           ))}
         </div>
