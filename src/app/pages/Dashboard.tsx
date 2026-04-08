@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 const tutoriales = [
   { emoji: "🎤", title: "Uso del Asistente de Voz",           duration: "2 min", points: "+50 pts",  desc: "Aprende a dictar observaciones con tu voz de forma rápida y precisa." },
   { emoji: "🥗", title: "Alertas Nutricionales",               duration: "3 min", points: "+75 pts",  desc: "Identifica señales de alerta en la alimentación de los niños." },
-  { emoji: "📊", title: "Cómo Generar Reportes",               duration: "4 min", points: "+100 pts", desc: "Crea reportes mensuales para el ICBF en pocos pasos." },
+  { emoji: "📊", title: "Cómo Generar Reportes",               duration: "4 min", points: "+100 pts", desc: "Crea reportes mensuales de seguimiento en pocos pasos." },
   { emoji: "🏅", title: "Sistema de Puntos y Badges",          duration: "2 min", points: "+50 pts",  desc: "Descubre cómo ganar puntos y desbloquear certificaciones." },
   { emoji: "👶", title: "Registro de Desarrollo Infantil",     duration: "5 min", points: "+120 pts", desc: "Documenta hitos del desarrollo motor, cognitivo y social." },
   { emoji: "🚨", title: "Gestión de Alertas de Salud",         duration: "3 min", points: "+75 pts",  desc: "Cómo actuar ante una alerta de salud generada por el sistema." },

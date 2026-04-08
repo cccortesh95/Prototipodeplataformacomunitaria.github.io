@@ -65,10 +65,10 @@ export default function VoluntariadoVoluntarios() {
               <p className="text-gray-700 text-sm">
                 Revisa las necesidades publicadas por las madres comunitarias, elige la que más
                 se ajuste a lo que puedes ofrecer y regístra tu interés. Un trabajador social
-                del ICBF te guiará en el proceso de entrega.
+                te guiará en el proceso de entrega.
               </p>
               <div className="flex flex-wrap gap-4 mt-4">
-                {["Proceso seguro y verificado", "Impacto directo en los niños", "Acompañamiento del ICBF"].map((t) => (
+                {["Proceso seguro y verificado", "Impacto directo en los niños", "Acompañamiento profesional"].map((t) => (
                   <div key={t} className="flex items-center gap-2 text-sm text-gray-700">
                     <CheckCircle className="w-4 h-4 text-purple-600" />
                     <span>{t}</span>
@@ -87,7 +87,7 @@ export default function VoluntariadoVoluntarios() {
             {[
               { step: "1", title: "Explora", desc: "Revisa las necesidades activas de los hogares comunitarios", color: "bg-blue-100 text-blue-700" },
               { step: "2", title: "Elige",   desc: "Selecciona la necesidad con la que deseas contribuir",       color: "bg-purple-100 text-purple-700" },
-              { step: "3", title: "Ayuda",   desc: "Un trabajador social del ICBF te guiará en el proceso",     color: "bg-green-100 text-green-700" },
+              { step: "3", title: "Ayuda",   desc: "Un trabajador social te guiará en el proceso",     color: "bg-green-100 text-green-700" },
             ].map((item) => (
               <div key={item.step} className="flex gap-3 items-start">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm ${item.color}`}>

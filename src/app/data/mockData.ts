@@ -1,4 +1,4 @@
-// Mock data para el prototipo ICBF
+// Mock data para el prototipo
 
 export interface Nino {
   id: string;

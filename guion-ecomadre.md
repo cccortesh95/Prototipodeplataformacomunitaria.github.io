@@ -14,7 +14,7 @@ Eso es exactamente lo que EcoMadre viene a cambiar."
 
 ## [0:25 – 0:50] QUÉ ES ECOMADRE
 
-"EcoMadre es una plataforma diseñada para las madres comunitarias del ICBF. Les permite registrar observaciones de los niños de forma rápida, recibir alertas automáticas cuando algo no está bien, y conectar su hogar con voluntarios que quieren ayudar.
+"EcoMadre es una plataforma diseñada para las madres comunitarias. Les permite registrar observaciones de los niños de forma rápida, recibir alertas automáticas cuando algo no está bien, y conectar su hogar con voluntarios que quieren ayudar.
 
 Todo desde el celular. Sin complicaciones. Sin papeles."
 
@@ -34,7 +34,7 @@ Esto es clave porque muchas madres comunitarias tienen conectividad limitada y p
 
 "Ahora, en la pantalla de Monitoreo, la madre ve solo los niños de su hogar. Gráficos de desarrollo, tendencias de peso y talla, y las alertas organizadas por prioridad: críticas en rojo, medias en naranja.
 
-Pero aquí viene lo importante: los inspectores del ICBF ven el panorama completo. Todos los hogares. Todas las alertas. Pueden actuar rápido donde más se necesita.
+Pero aquí viene lo importante: los inspectores ven el panorama completo. Todos los hogares. Todas las alertas. Pueden actuar rápido donde más se necesita.
 
 Cada rol ve exactamente lo que necesita. Ni más, ni menos."
 
@@ -44,7 +44,7 @@ Cada rol ve exactamente lo que necesita. Ni más, ni menos."
 
 "EcoMadre también conecta a la comunidad. Si un hogar necesita libros, alimentos o materiales didácticos, la madre publica esa necesidad desde la app.
 
-Del otro lado, cualquier persona que quiera ser voluntario entra, ve las necesidades activas, elige cómo ayudar y un trabajador social del ICBF coordina la entrega. Todo verificado. Todo transparente.
+Del otro lado, cualquier persona que quiera ser voluntario entra, ve las necesidades activas, elige cómo ayudar y un trabajador social coordina la entrega. Todo verificado. Todo transparente.
 
 Es un puente directo entre quien necesita y quien quiere dar."
 

@@ -17,7 +17,7 @@ const MOCK_USERS: Record<string, { password: string; nombre: string; role: Role 
 
 const ROLE_LABELS: Record<Role, string> = {
   madre:      "Madre Comunitaria",
-  inspector:  "Inspector ICBF",
+  inspector:  "Inspector",
   voluntario: "Voluntario",
 };
 

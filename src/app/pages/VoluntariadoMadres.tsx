@@ -48,7 +48,7 @@ export default function VoluntariadoMadres() {
               <p className="text-gray-700 text-sm">
                 Registra las necesidades específicas de tu hogar comunitario. La comunidad podrá
                 ver tu solicitud y responder de manera transparente y segura. Toda la información
-                es verificada por trabajadores sociales del ICBF.
+                es verificada por trabajadores sociales.
               </p>
               <div className="flex flex-wrap gap-4 mt-4">
                 {["Necesidades verificadas", "Proceso seguro y transparente", "Apoyo directo a los niños"].map((t) => (

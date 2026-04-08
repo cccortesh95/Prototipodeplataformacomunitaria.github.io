@@ -26,7 +26,7 @@ const NAV_BY_ROLE: Record<Role, NavItem[]> = {
 
 const ROLE_LABELS: Record<Role, string> = {
   madre:      "Madre Comunitaria",
-  inspector:  "Inspector ICBF",
+  inspector:  "Inspector",
   voluntario: "Voluntario",
 };
 

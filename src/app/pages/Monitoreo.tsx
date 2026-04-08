@@ -82,7 +82,7 @@ export default function Monitoreo() {
               </h3>
               <p className="text-sm text-red-800 mb-4">
                 Se han detectado {alertas.filter(a => a.tipo === 'critico').length} situaciones 
-                que requieren atención inmediata de los trabajadores sociales del ICBF.
+                que requieren atención inmediata de los trabajadores sociales.
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 bg-red-200 text-red-900 rounded-full text-sm font-medium">
