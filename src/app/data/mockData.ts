@@ -113,3 +113,233 @@ export const blockchainRecords: BlockchainRecord[] = [
     prevHash: '0x5b2c9e8d7f3a1b5c7f9a2b3c8e1d4f6a'
   },
 ];
+
+
+// ============================================================================
+// COMUNIDAD — Posts del blog entre madres y voluntarios que aportaron
+// ============================================================================
+
+export interface ComunidadComentario {
+  id: string;
+  autor: string;
+  rolAutor: 'madre' | 'voluntario' | 'inspector';
+  contenido: string;
+  fecha: string;
+  esVoz?: boolean;
+}
+
+export interface ComunidadPost {
+  id: string;
+  autor: string;
+  rolAutor: 'madre' | 'voluntario';
+  hogar: string;
+  contenido: string;
+  fecha: string;
+  esVoz?: boolean;
+  imagen?: string;
+  reacciones: number;
+  comentarios: ComunidadComentario[];
+  /**
+   * Segmento del blog:
+   * - 'madres'  → privado, solo madres comunitarias e inspectores pueden verlo
+   * - 'aportes' → público entre madres y voluntarios que han aportado
+   */
+  tipo: 'madres' | 'aportes';
+}
+
+export const comunidadPosts: ComunidadPost[] = [
+  {
+    id: 'p1',
+    autor: 'Rosa Fernández',
+    rolAutor: 'madre',
+    hogar: 'Los Girasoles',
+    contenido: '¡Mil gracias a Ana Gómez por los libros de cuentos! El hogar los recibió con mucha alegría. Es muy lindo ver cómo un detalle puede cambiar el día.',
+    fecha: '2026-04-08',
+    esVoz: true,
+    reacciones: 12,
+    tipo: 'aportes',
+    comentarios: [
+      {
+        id: 'c1',
+        autor: 'Ana Gómez',
+        rolAutor: 'voluntario',
+        contenido: '¡Qué alegría leer esto! Voy a tratar de conseguir más libros la próxima semana. ¿Hay alguna temática que recomienden?',
+        fecha: '2026-04-08',
+      },
+      {
+        id: 'c2',
+        autor: 'Rosa Fernández',
+        rolAutor: 'madre',
+        contenido: 'Cuentos de animales y con mucho color. ¡Mil gracias!',
+        fecha: '2026-04-08',
+        esVoz: true,
+      },
+    ],
+  },
+  {
+    id: 'p2',
+    autor: 'Laura Gómez',
+    rolAutor: 'madre',
+    hogar: 'Las Margaritas',
+    contenido: 'Compañeras, ¿alguna ha probado las rondas con instrumentos caseros? Estoy buscando ideas para la planificación de la próxima semana.',
+    fecha: '2026-04-07',
+    reacciones: 8,
+    tipo: 'madres',
+    comentarios: [
+      {
+        id: 'c3',
+        autor: 'Rosa Fernández',
+        rolAutor: 'madre',
+        contenido: 'Sí Laura, en el hogar hicimos maracas con botellas y arroz. Quedaron felices. Te paso fotos por interno.',
+        fecha: '2026-04-07',
+        esVoz: true,
+      },
+    ],
+  },
+  {
+    id: 'p3',
+    autor: 'Carlos Ruiz',
+    rolAutor: 'voluntario',
+    hogar: 'Los Girasoles',
+    contenido: 'Acabo de entregar las frutas de esta semana al hogar Los Girasoles. Si alguien más quiere sumarse para abril, estoy organizando una compra grupal.',
+    fecha: '2026-04-06',
+    reacciones: 15,
+    tipo: 'aportes',
+    comentarios: [],
+  },
+  {
+    id: 'p4',
+    autor: 'Diana Castillo',
+    rolAutor: 'madre',
+    hogar: 'Los Naranjos',
+    contenido: 'Compañeras, ¿qué actividades hacen los lunes en la mañana? A mí me funciona muy bien empezar con un círculo de saludos para que entren en ritmo.',
+    fecha: '2026-04-05',
+    reacciones: 6,
+    tipo: 'madres',
+    comentarios: [
+      {
+        id: 'c4',
+        autor: 'Laura Gómez',
+        rolAutor: 'madre',
+        contenido: 'Diana, en el hogar también arrancamos con saludo y luego hacemos una canción de bienvenida. Funciona muy bien.',
+        fecha: '2026-04-05',
+      },
+    ],
+  },
+];
+
+// ============================================================================
+// MENSAJES — Voluntarios ↔ Madres (chat directo por necesidad)
+// ============================================================================
+
+export interface MensajeChat {
+  id: string;
+  remitente: string;
+  rolRemitente: 'madre' | 'voluntario';
+  contenido: string;
+  fecha: string;
+  hora: string;
+  esVoz?: boolean;
+}
+
+export interface ConversacionVoluntario {
+  id: string;
+  necesidadId: string;
+  hogar: string;
+  madre: string;
+  voluntario: string;
+  ultimaActividad: string;
+  mensajes: MensajeChat[];
+}
+
+export const conversacionesVoluntario: ConversacionVoluntario[] = [
+  {
+    id: 'conv1',
+    necesidadId: '1',
+    hogar: 'Los Girasoles',
+    madre: 'Rosa Fernández',
+    voluntario: 'Ana Gómez',
+    ultimaActividad: 'Hace 2 horas',
+    mensajes: [
+      {
+        id: 'm1',
+        remitente: 'Ana Gómez',
+        rolRemitente: 'voluntario',
+        contenido: 'Buenas tardes Rosa, vi que necesitan libros de cuentos. ¿Cuántos hogares atiendes y qué cantidad sería útil?',
+        fecha: '2026-04-07',
+        hora: '14:20',
+      },
+      {
+        id: 'm2',
+        remitente: 'Rosa Fernández',
+        rolRemitente: 'madre',
+        contenido: 'Hola Ana, cualquier cantidad nos sirve. Lo ideal serían libros con mucho color y temáticas de animales.',
+        fecha: '2026-04-07',
+        hora: '14:35',
+        esVoz: true,
+      },
+      {
+        id: 'm3',
+        remitente: 'Ana Gómez',
+        rolRemitente: 'voluntario',
+        contenido: 'Perfecto, voy a llevar 10 libros el viernes. ¿A qué hora les queda bien la entrega?',
+        fecha: '2026-04-08',
+        hora: '09:10',
+      },
+    ],
+  },
+  {
+    id: 'conv2',
+    necesidadId: '2',
+    hogar: 'Las Margaritas',
+    madre: 'Laura Gómez',
+    voluntario: 'Carlos Ruiz',
+    ultimaActividad: 'Hace 1 día',
+    mensajes: [
+      {
+        id: 'm4',
+        remitente: 'Carlos Ruiz',
+        rolRemitente: 'voluntario',
+        contenido: 'Hola Laura, soy Carlos. Quiero aportar con las frutas de esta semana. ¿Hay alguna que prefieran?',
+        fecha: '2026-04-06',
+        hora: '11:00',
+      },
+      {
+        id: 'm5',
+        remitente: 'Laura Gómez',
+        rolRemitente: 'madre',
+        contenido: 'Hola Carlos, manzana y banano son las que mejor se reciben. Si pudieras incluir algo de papaya sería un lujo.',
+        fecha: '2026-04-06',
+        hora: '11:30',
+        esVoz: true,
+      },
+    ],
+  },
+];
+
+// ============================================================================
+// TUTORIALES — Lista completa para la página dedicada
+// ============================================================================
+
+export interface Tutorial {
+  id: string;
+  emoji: string;
+  title: string;
+  duration: string;
+  points: string;
+  desc: string;
+  categoria: 'Voz' | 'Salud' | 'Reportes' | 'Gamificación' | 'Desarrollo' | 'Voluntariado' | 'Planificación' | 'Configuración';
+  completado?: boolean;
+}
+
+export const tutorialesData: Tutorial[] = [
+  { id: 't1', emoji: '🎤', title: 'Uso del Asistente de Voz',           duration: '2 min', points: '+50 pts',  desc: 'Aprende a dictar observaciones con tu voz de forma rápida y precisa.', categoria: 'Voz', completado: true },
+  { id: 't2', emoji: '🥗', title: 'Alertas Nutricionales',               duration: '3 min', points: '+75 pts',  desc: 'Identifica señales de alerta en la alimentación de los niños.', categoria: 'Salud' },
+  { id: 't3', emoji: '📊', title: 'Cómo Generar Reportes',               duration: '4 min', points: '+100 pts', desc: 'Crea reportes mensuales de seguimiento en pocos pasos.', categoria: 'Reportes' },
+  { id: 't4', emoji: '🏅', title: 'Sistema de Puntos y Badges',          duration: '2 min', points: '+50 pts',  desc: 'Descubre cómo ganar puntos y desbloquear certificaciones.', categoria: 'Gamificación', completado: true },
+  { id: 't5', emoji: '👶', title: 'Registro de Desarrollo Infantil',     duration: '5 min', points: '+120 pts', desc: 'Documenta hitos del desarrollo motor, cognitivo y social.', categoria: 'Desarrollo' },
+  { id: 't6', emoji: '🚨', title: 'Gestión de Alertas de Salud',         duration: '3 min', points: '+75 pts',  desc: 'Cómo actuar ante una alerta de salud generada por el sistema.', categoria: 'Salud' },
+  { id: 't7', emoji: '❤️', title: 'Publicar Necesidades de Voluntariado', duration: '2 min', points: '+50 pts',  desc: 'Conecta tu hogar con voluntarios que quieren ayudar.', categoria: 'Voluntariado' },
+  { id: 't8', emoji: '📅', title: 'Planificación Semanal de Actividades', duration: '4 min', points: '+100 pts', desc: 'Organiza las actividades pedagógicas de la semana.', categoria: 'Planificación' },
+  { id: 't9', emoji: '🔔', title: 'Configurar Notificaciones',            duration: '2 min', points: '+50 pts',  desc: 'Personaliza qué alertas y recordatorios quieres recibir.', categoria: 'Configuración' },
+];

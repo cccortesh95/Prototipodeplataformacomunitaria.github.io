@@ -18,7 +18,7 @@ export default function BlockchainView({ records }: BlockchainViewProps) {
   return (
     <div className="space-y-4">
       {/* Header explicativo */}
-      <Card className="p-6 bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200">
+      <Card className="p-6 bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
         <div className="flex items-start gap-4">
           <Shield className="w-12 h-12 text-purple-600 flex-shrink-0" />
           <div>

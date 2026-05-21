@@ -8,6 +8,8 @@ import VoluntariadoVoluntarios from "./pages/VoluntariadoVoluntarios";
 import LoginPage from "./pages/LoginPage";
 import Unauthorized from "./pages/Unauthorized";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Tutoriales from "./pages/Tutoriales";
+import Comunidad from "./pages/Comunidad";
 
 export const router = createBrowserRouter([
   { path: "/login",        element: <LoginPage /> },
@@ -53,6 +55,22 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute allowedRoles={["inspector", "voluntario"]}>
             <VoluntariadoVoluntarios />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "tutoriales",
+        element: (
+          <ProtectedRoute allowedRoles={["madre"]}>
+            <Tutoriales />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "comunidad",
+        element: (
+          <ProtectedRoute allowedRoles={["madre", "voluntario"]}>
+            <Comunidad />
           </ProtectedRoute>
         ),
       },

@@ -66,7 +66,7 @@ export default function VoiceInput({ onTranscription }: VoiceInputProps) {
           <div className="flex justify-center mb-3">
             <div className="relative w-16 h-16">
               {/* Head */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl shadow-md flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#c76b9f] to-[#9b59b6] rounded-xl shadow-md flex items-center justify-center">
                 {/* Eyes */}
                 <div className="flex gap-2 mb-1">
                   <motion.div
@@ -74,19 +74,19 @@ export default function VoiceInput({ onTranscription }: VoiceInputProps) {
                     transition={{ repeat: Infinity, duration: 0.6 }}
                     className="w-3 h-3 bg-white rounded-full flex items-center justify-center"
                   >
-                    <div className="w-1.5 h-1.5 bg-blue-700 rounded-full" />
+                    <div className="w-1.5 h-1.5 bg-[#6b3a7d] rounded-full" />
                   </motion.div>
                   <motion.div
                     animate={isRecording ? { scale: [1, 1.3, 1] } : {}}
                     transition={{ repeat: Infinity, duration: 0.6, delay: 0.1 }}
                     className="w-3 h-3 bg-white rounded-full flex items-center justify-center"
                   >
-                    <div className="w-1.5 h-1.5 bg-blue-700 rounded-full" />
+                    <div className="w-1.5 h-1.5 bg-[#6b3a7d] rounded-full" />
                   </motion.div>
                 </div>
               </div>
               {/* Antenna */}
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-1 h-3 bg-blue-400 rounded-full" />
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-1 h-3 bg-[#c76b9f] rounded-full" />
               <motion.div
                 animate={isRecording ? { backgroundColor: ["#f59e0b", "#ef4444", "#f59e0b"] } : { backgroundColor: "#93c5fd" }}
                 transition={{ repeat: Infinity, duration: 0.5 }}
@@ -113,7 +113,7 @@ export default function VoiceInput({ onTranscription }: VoiceInputProps) {
               className={`w-24 h-24 rounded-full ${
                 isRecording
                   ? 'bg-red-600 hover:bg-red-700 animate-pulse'
-                  : 'bg-gradient-to-br from-blue-600 to-purple-600'
+                  : 'bg-gradient-to-br from-[#9b59b6] to-[#c76b9f]'
               }`}
             >
               {isProcessing ? (
@@ -142,7 +142,7 @@ export default function VoiceInput({ onTranscription }: VoiceInputProps) {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-blue-600 font-medium"
+              className="text-[#9b59b6] font-medium"
             >
               🤖 Procesando...
             </motion.p>

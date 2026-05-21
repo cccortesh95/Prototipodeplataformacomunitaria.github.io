@@ -100,29 +100,29 @@ export default function RegistroSimplificado() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <Card className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 h-full">
+          <Card className="p-6 bg-gradient-to-br from-pink-50 to-purple-50 h-full">
             <h3 className="font-semibold text-lg mb-4">💡 ¿Cómo funciona el registro?</h3>
             <div className="space-y-3 text-sm">
               <div className="flex gap-2">
-                <span className="text-blue-600">1.</span>
+                <span className="text-[#9b59b6]">1.</span>
                 <p>Presiona el micrófono y dicta tu observación naturalmente</p>
               </div>
               <div className="flex gap-2">
-                <span className="text-blue-600">2.</span>
+                <span className="text-[#9b59b6]">2.</span>
                 <p>El sistema convierte tu voz en texto automáticamente</p>
               </div>
               <div className="flex gap-2">
-                <span className="text-blue-600">3.</span>
+                <span className="text-[#9b59b6]">3.</span>
                 <p>La observación se clasifica por categoría de forma inteligente</p>
               </div>
               <div className="flex gap-2">
-                <span className="text-blue-600">4.</span>
+                <span className="text-[#9b59b6]">4.</span>
                 <p>Si detecta situaciones de atención, genera una alerta automática</p>
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-white rounded-lg border border-blue-200">
-              <p className="text-xs font-semibold text-blue-900 mb-2">Ejemplos de uso:</p>
+            <div className="mt-6 p-4 bg-white rounded-lg border border-pink-200">
+              <p className="text-xs font-semibold text-[#6b3a7d] mb-2">Ejemplos de uso:</p>
               <ul className="text-xs space-y-1 text-gray-700">
                 <li>• "Juanito tiene fiebre y no quiso almorzar"</li>
                 <li>• "María participó muy bien en las actividades"</li>
@@ -229,7 +229,7 @@ export default function RegistroSimplificado() {
       </motion.div>
 
       {/* Ventajas del Sistema */}
-      <Card className="p-6 bg-gradient-to-r from-green-50 to-blue-50">
+      <Card className="p-6 bg-gradient-to-r from-green-50 to-pink-50">
         <h3 className="font-semibold text-lg mb-4">✨ Ventajas del Registro Simplificado</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="text-center p-4">

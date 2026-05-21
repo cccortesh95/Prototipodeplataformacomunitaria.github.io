@@ -113,7 +113,7 @@ export default function ChatBot() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full shadow-lg flex items-center justify-center text-white z-50"
+        className="fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-br from-[#9b59b6] to-[#c76b9f] rounded-full shadow-lg flex items-center justify-center text-white z-50"
       >
         {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
       </motion.button>
@@ -128,7 +128,7 @@ export default function ChatBot() {
             className="fixed bottom-24 right-6 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl z-50 overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-[#9b59b6] to-[#c76b9f] text-white p-4 flex items-center gap-3">
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-lg">🤖</div>
               <div>
                 <h3 className="font-semibold leading-none">Asistente Virtual</h3>
@@ -143,7 +143,7 @@ export default function ChatBot() {
                   <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${
                     msg.isBot
                       ? "bg-white shadow-sm text-gray-800 rounded-tl-sm"
-                      : "bg-blue-600 text-white rounded-tr-sm"
+                      : "bg-[#9b59b6] text-white rounded-tr-sm"
                   }`}>
                     {msg.text}
                   </div>

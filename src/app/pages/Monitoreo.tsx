@@ -53,7 +53,7 @@ export default function Monitoreo() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <Activity className="w-8 h-8 text-blue-600" />
+              <Activity className="w-8 h-8 text-[#9b59b6]" />
               <h2 className="text-3xl font-bold">Monitoreo Infantil</h2>
             </div>
             <p className="text-gray-600">
@@ -124,7 +124,7 @@ export default function Monitoreo() {
             ))}
           </motion.div>
 
-          <Card className="p-6 bg-blue-50 border-blue-200">
+          <Card className="p-6 bg-pink-50 border-pink-200">
             <h4 className="font-semibold mb-2">📋 ¿Cómo se generan las alertas?</h4>
             <p className="text-sm text-gray-700">
               El sistema analiza patrones de comportamiento, alimentación y salud. 
@@ -169,7 +169,7 @@ export default function Monitoreo() {
           {/* Gráfico de Desarrollo */}
           <Card className="p-6">
             <div className="flex items-center gap-2 mb-4">
-              <TrendingUp className="w-5 h-5 text-blue-600" />
+              <TrendingUp className="w-5 h-5 text-[#9b59b6]" />
               <h3 className="font-semibold text-lg">Tendencia de Desarrollo - Juanito Pérez</h3>
             </div>
             <ResponsiveContainer width="100%" height={300}>

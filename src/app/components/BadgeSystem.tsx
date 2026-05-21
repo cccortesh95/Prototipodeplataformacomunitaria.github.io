@@ -11,7 +11,7 @@ interface BadgeSystemProps {
 
 export default function BadgeSystem({ puntos, certificaciones, nivel }: BadgeSystemProps) {
   const badges = [
-    { icon: Award, name: "Primera Semana", unlocked: true, color: "text-blue-600" },
+    { icon: Award, name: "Primera Semana", unlocked: true, color: "text-[#9b59b6]" },
     { icon: Star, name: "10 Registros", unlocked: true, color: "text-yellow-600" },
     { icon: Trophy, name: "Nivel Experta", unlocked: true, color: "text-purple-600" },
     { icon: Medal, name: "100 Días", unlocked: false, color: "text-gray-400" },
@@ -33,8 +33,8 @@ export default function BadgeSystem({ puntos, certificaciones, nivel }: BadgeSys
         </div>
 
         {/* Certificaciones */}
-        <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
-          <Trophy className="w-8 h-8 text-purple-600" />
+        <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg">
+          <Trophy className="w-8 h-8 text-[#9b59b6]" />
           <div>
             <p className="font-semibold">{certificaciones} Certificaciones</p>
             <p className="text-sm text-gray-600">Completadas con éxito</p>
@@ -56,7 +56,7 @@ export default function BadgeSystem({ puntos, certificaciones, nivel }: BadgeSys
                   <div
                     className={`w-14 h-14 rounded-full flex items-center justify-center ${
                       badge.unlocked
-                        ? 'bg-gradient-to-br from-blue-100 to-purple-100'
+                        ? 'bg-gradient-to-br from-pink-100 to-purple-100'
                         : 'bg-gray-100'
                     }`}
                   >
@@ -72,8 +72,8 @@ export default function BadgeSystem({ puntos, certificaciones, nivel }: BadgeSys
         </div>
 
         {/* Próximo Objetivo */}
-        <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-          <p className="text-sm font-medium text-blue-900">
+        <div className="p-4 bg-pink-50 rounded-lg border border-pink-200">
+          <p className="text-sm font-medium text-[#6b3a7d]">
             🎯 Próximo objetivo: {nextLevelPoints - puntos} puntos para Nivel Maestra
           </p>
         </div>
