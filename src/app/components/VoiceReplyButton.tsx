@@ -61,7 +61,7 @@ export default function VoiceReplyButton({ onTranscription, className = "" }: Vo
         variant="ghost"
         onClick={handleClick}
         disabled={isProcessing}
-        className={`gap-2 ${
+        className={`gap-2 w-full sm:w-auto justify-center ${
           isRecording
             ? "bg-red-100 text-red-700 hover:bg-red-200 animate-pulse"
             : "text-[#6b3a7d] hover:bg-pink-50"

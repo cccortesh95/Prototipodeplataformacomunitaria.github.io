@@ -99,10 +99,16 @@ export default function Monitoreo() {
 
       {/* Tabs de Contenido */}
       <Tabs defaultValue="alertas" className="space-y-4">
-        <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="alertas">Alertas Tempranas</TabsTrigger>
-          <TabsTrigger value="graficos">Visualizaciones</TabsTrigger>
-          <TabsTrigger value="ninos">Listado de Niños</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-3 h-auto">
+          <TabsTrigger value="alertas" className="text-xs sm:text-sm whitespace-normal py-2 leading-tight">
+            Alertas<br className="sm:hidden" /> Tempranas
+          </TabsTrigger>
+          <TabsTrigger value="graficos" className="text-xs sm:text-sm whitespace-normal py-2 leading-tight">
+            Visualizaciones
+          </TabsTrigger>
+          <TabsTrigger value="ninos" className="text-xs sm:text-sm whitespace-normal py-2 leading-tight">
+            Listado<br className="sm:hidden" /> de Niños
+          </TabsTrigger>
         </TabsList>
 
         {/* Tab de Alertas */}

@@ -2,12 +2,18 @@ import { useMemo, useState } from "react";
 import { Card } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
-import { Heart, MapPin, Users, CheckCircle, MessageCircle, Send, X, ArrowUp, Clock, ShieldAlert } from "lucide-react";
+import { Heart, MapPin, Users, CheckCircle, MessageCircle, Send, X, ArrowUp, Clock, ShieldAlert, MoreVertical } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { toast } from "sonner";
 import { conversacionesVoluntario, ConversacionVoluntario, MensajeChat } from "../data/mockData";
 import { useAuth } from "../context/AuthContext";
 import VoiceReplyButton from "../components/VoiceReplyButton";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../components/ui/dropdown-menu";
 
 interface Necesidad {
   id: string;

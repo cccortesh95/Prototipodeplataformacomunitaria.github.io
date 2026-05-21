@@ -218,10 +218,11 @@ export default function Comunidad() {
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <VoiceReplyButton
                     onTranscription={(text) => setNuevoPost((prev) => (prev ? prev + " " : "") + text)}
+                    className="flex-1 sm:flex-initial"
                   />
                   <Button
                     onClick={publicarPost}
-                    className="gap-2 bg-gradient-to-r from-[#9b59b6] to-[#c76b9f] text-white"
+                    className="gap-2 bg-gradient-to-r from-[#9b59b6] to-[#c76b9f] text-white flex-1 sm:flex-initial"
                   >
                     <Send className="w-4 h-4" />
                     {segmento === "madres" ? "Publicar entre madres" : "Publicar"}
@@ -344,7 +345,7 @@ export default function Comunidad() {
                               rows={2}
                               className="resize-none"
                             />
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between gap-2 flex-wrap">
                               <VoiceReplyButton
                                 onTranscription={(text) =>
                                   setComentario(
@@ -352,11 +353,12 @@ export default function Comunidad() {
                                     (comentarioPorPost[post.id] ?? "") + (comentarioPorPost[post.id] ? " " : "") + text
                                   )
                                 }
+                                className="flex-1 sm:flex-initial"
                               />
                               <Button
                                 size="sm"
                                 onClick={() => comentar(post.id)}
-                                className="gap-2 bg-gradient-to-r from-[#9b59b6] to-[#c76b9f] text-white"
+                                className="gap-2 bg-gradient-to-r from-[#9b59b6] to-[#c76b9f] text-white flex-1 sm:flex-initial"
                               >
                                 <Send className="w-3.5 h-3.5" />
                                 Comentar
