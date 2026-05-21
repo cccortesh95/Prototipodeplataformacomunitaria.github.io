@@ -174,18 +174,18 @@ export default function VoluntariadoVoluntarios() {
                       </span>
                     </div>
                     <p className="text-[#4a2c5e]">{n.descripcion}</p>
-                    <div className="flex items-center justify-between flex-wrap gap-2">
+                    <div className="flex items-center justify-between flex-wrap gap-3">
                       <span className="flex items-center gap-1 text-xs text-[#7c5a8e]">
                         <Clock className="w-3 h-3" />
                         Publicado hace {dias} {dias === 1 ? "día" : "días"}
                       </span>
-                      <div className="flex gap-2">
+                      <div className="flex gap-2 w-full sm:w-auto flex-col sm:flex-row">
                         {conv && (
                           <Button
                             size="sm"
                             variant="outline"
                             onClick={() => setChatActivo(conv.id)}
-                            className="gap-2 border-[#9b59b6] text-[#6b3a7d] hover:bg-pink-50"
+                            className="gap-2 border-[#9b59b6] text-[#6b3a7d] hover:bg-pink-50 w-full sm:w-auto"
                           >
                             <MessageCircle className="w-4 h-4" />
                             Continuar conversación
@@ -194,7 +194,7 @@ export default function VoluntariadoVoluntarios() {
                         <Button
                           size="sm"
                           onClick={() => handleAyudar(n)}
-                          className="gap-2 bg-gradient-to-r from-[#9b59b6] to-[#c76b9f] text-white"
+                          className="gap-2 bg-gradient-to-r from-[#9b59b6] to-[#c76b9f] text-white w-full sm:w-auto"
                         >
                           <Heart className="w-4 h-4" />
                           {conv ? "Quiero ayudar" : "Quiero ayudar y escribir"}
